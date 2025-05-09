@@ -2,8 +2,13 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Eye, Pencil, Download, Trash2, XCircle, Menu, X } from "lucide-react";
+import { useRouter } from 'next/navigation';
 
 export default function Request() {
+  const router = useRouter();
+  const handleDashboard = () => {
+    router.push('/Upload'); // Replace with your desired route
+  };
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
@@ -455,7 +460,7 @@ export default function Request() {
               </div>
 
               <button
-                onClick={handleNewRequest}
+                onClick={handleDashboard}
                 className="bg-[#3344FF] text-white px-4 py-2 rounded flex items-center gap-2"
               >
                 <span>+</span> New Request

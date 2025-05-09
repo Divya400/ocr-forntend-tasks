@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+                
 import {
     FaUser,
     FaEnvelope,
@@ -11,6 +13,10 @@ import {
 } from 'react-icons/fa';
 
 export default function Payment() {
+       const router = useRouter();
+    const paymentPage = () => {
+        router.push('/request'); // Replace with your desired route
+      };
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -202,7 +208,7 @@ export default function Payment() {
                         </div>
                     </div>
 
-                    <button type="submit" className="w-full bg-[#38bdf8] hover:bg-[#0ea5e9] text-white font-medium py-3 rounded-md transition-colors">
+                    <button type="submit" className="w-full bg-[#38bdf8] hover:bg-[#0ea5e9] text-white font-medium py-3 rounded-md transition-colors" onClick={paymentPage}>
                         Submit
                     </button>
                 </form>
