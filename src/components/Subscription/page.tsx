@@ -9,8 +9,8 @@ import Cross from '../../../public/Subscribe/cross.png';
 
 const subscription: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-20">
+    <div className="flex items-center justify-center bg-gray-50 px-4">
+      <div className="flex lg:flex-col md:flex-row items-center justify-center gap-20">
         {/* Left Card */}
         <div className="w-[90%] md:w-[280px] lg:w-[300px] h-[60vh] bg-gradient-to-b from-[#D7D7D7] to-[#FFFFFF] 
         rounded-br-[55px] rounded-bl-[55px] p-6 flex flex-col justify-center items-center shadow-md "
