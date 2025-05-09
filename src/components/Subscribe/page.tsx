@@ -1,3 +1,5 @@
+/* this is the main pricing page */
+
 import React from "react";
 import Image from "next/image";
 import GroupImage from "../../../public/Subscribe/Group 9.png";
