@@ -40,7 +40,7 @@ const LoginPage = () => {
         console.log({ email, password, rememberMe });
 
         // 🔁 Navigate to dashboard or any target page
-        router.push('/Subscription'); // change '/dashboard' to your target route
+        router.push('/SubScribeFile'); // change '/dashboard' to your target route
     };
 
 

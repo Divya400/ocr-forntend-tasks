@@ -6,25 +6,30 @@ import UploadIcon from '../../../public/Upload/Vector (2).png';
 
 const UploadPage = () => {
   const [fileError, setFileError] = useState('');
+  const [fileName, setFileName] = useState('');
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files || files.length === 0) return;
-    const file = files[0];
 
-    if (file.type !== 'application/pdf') {
-      setFileError('Only PDF files are allowed.');
-      return;
-    }
+const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const files = e.target.files;
+  if (!files || files.length === 0) return;
+  const file = files[0];
 
-    if (file.size > 6 * 1024 * 1024) {
-      setFileError('File size should not exceed 6MB.');
-      return;
-    }
+  if (file.type !== 'application/pdf') {
+    setFileError('Only PDF files are allowed.');
+    setFileName('');
+    return;
+  }
 
-    setFileError('');
-    console.log('Valid file:', file.name);
-  };
+  if (file.size > 6 * 1024 * 1024) {
+    setFileError('File size should not exceed 6MB.');
+    setFileName('');
+    return;
+  }
+
+  setFileError('');
+  setFileName(file.name);
+  console.log('Valid file:', file.name);
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -64,7 +69,9 @@ const UploadPage = () => {
             Choose File
           </label>
 
-          {fileError && <p className="text-red-500 text-sm">{fileError}</p>}
+ {fileError && <p className="text-red-500 text-sm">{fileError}</p>}
+{fileName && <p className="text-green-600 text-sm font-medium">Selected file: {fileName}</p>}
+
         </div>
 
       </div>
