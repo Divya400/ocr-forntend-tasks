@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-                
+
 import {
     FaUser,
     FaEnvelope,
@@ -13,11 +13,22 @@ import {
 } from 'react-icons/fa';
 
 export default function Payment() {
-       const router = useRouter();
+    const router = useRouter();
     const paymentPage = () => {
         router.push('/request'); // Replace with your desired route
-      };
-    const [formData, setFormData] = useState({
+    };
+
+    interface FormData {
+        firstName: string;
+        lastName: string;
+        email: string;
+        password: string;
+        cardNumber: string;
+        expiry: string;
+        cvv: string;
+    }
+
+    const [formData, setFormData] = useState<FormData>({
         firstName: '',
         lastName: '',
         email: '',
@@ -27,7 +38,7 @@ export default function Payment() {
         cvv: '',
     });
 
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
     const [showPopup, setShowPopup] = useState(false);
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -113,7 +124,7 @@ export default function Payment() {
     return (
         <div className="w-screen h-screen flex items-center justify-center bg-white relative">
             {showPopup && (
-                <div className="absolute top-10 right-10 bg-green-600 text-white px-6 py-3 justify-center rounded-md shadow-lg text-lg font-medium z-50">
+                <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 justify-center rounded-md shadow-lg text-lg font-medium z-50">
                     ✅ Completed
                 </div>
             )}
@@ -149,12 +160,12 @@ export default function Payment() {
                     <h2 className="text-lg font-semibold text-[#39708d]">Payment Method</h2>
 
                     <div className="space-y-7">
-                        {[ 
-                            { name: 'firstName', icon: <FaUser />, placeholder: 'First Name', type: 'text' },
-                            { name: 'lastName', icon: <FaUser />, placeholder: 'Last Name', type: 'text' },
-                            { name: 'email', icon: <FaEnvelope />, placeholder: 'Email Address', type: 'email' },
-                            { name: 'password', icon: <FaKey />, placeholder: 'Password', type: 'password' },
-                            { name: 'cardNumber', icon: <FaCreditCard />, placeholder: 'Card Number', type: 'text' },
+                        {[
+                            { name: 'firstName' as keyof FormData, icon: <FaUser />, placeholder: 'First Name', type: 'text' },
+                            { name: 'lastName' as keyof FormData, icon: <FaUser />, placeholder: 'Last Name', type: 'text' },
+                            { name: 'email' as keyof FormData, icon: <FaEnvelope />, placeholder: 'Email Address', type: 'email' },
+                            { name: 'password' as keyof FormData, icon: <FaKey />, placeholder: 'Password', type: 'password' },
+                            { name: 'cardNumber' as keyof FormData, icon: <FaCreditCard />, placeholder: 'Card Number', type: 'text' },
                         ].map(({ name, icon, placeholder, type }) => (
                             <div key={name} className="space-y-2">
                                 <div className="flex items-center">
@@ -165,7 +176,7 @@ export default function Payment() {
                                         name={name}
                                         type={type}
                                         placeholder={placeholder}
-                                        value={formData[name]}
+                                        value={formData[name as keyof FormData]}
                                         onChange={handleChange}
                                         className="w-full bg-[#f5f5f5] px-4 py-3 text-sm text-gray-700 rounded-r focus:outline-none"
                                     />
