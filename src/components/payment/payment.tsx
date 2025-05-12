@@ -14,9 +14,6 @@ import {
 
 export default function Payment() {
     const router = useRouter();
-    const paymentPage = () => {
-        router.push('/request'); // Replace with your desired route
-    };
 
     interface FormData {
         firstName: string;
@@ -108,15 +105,7 @@ export default function Payment() {
             setShowPopup(true);
             setTimeout(() => {
                 setShowPopup(false);
-                setFormData({
-                    firstName: '',
-                    lastName: '',
-                    email: '',
-                    password: '',
-                    cardNumber: '',
-                    expiry: '',
-                    cvv: '',
-                });
+                router.push('/request'); // Replace '/request' with your desired route
             }, 3000);
         }
     };
