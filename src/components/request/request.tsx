@@ -256,18 +256,13 @@ export default function Request() {
             </li>
           </ul>
         </nav>
-
-        <div className="border-t border-gray-300 py-4 px-6 md:px-8 flex items-center gap-3 text-[#006666] cursor-pointer mt-auto">
-          <svg
-            className="w-5 h-5"
-            viewBox="0 0 20 20"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <circle cx="10" cy="10" r="8" />
-            <path d="M10 6v8M6 10h8" />
-          </svg>
+       {/* Logout */}
+        <div className="border-t border-gray-300 py-4 px-6 md:px-12 flex items-center gap-3 text-[#006666] cursor-pointer mt-[660px]">
+        <img
+                  src="/logout_icon.png"
+                  alt="logout Icon"
+                  className="w-5 h-5"
+                />
           <span className="font-medium">Logout</span>
         </div>
       </aside>
