@@ -219,7 +219,10 @@ export default function Payment() {
                         </div>
                     </div>
 
-                    <button type="submit" className="w-full bg-[#38bdf8] hover:bg-[#0ea5e9] text-white font-medium py-3 rounded-md transition-colors" onClick={paymentPage}>
+                    <button
+                        type="submit"
+                        className="w-full bg-[#38bdf8] hover:bg-[#0ea5e9] text-white font-medium py-3 rounded-md transition-colors"
+                    >
                         Submit
                     </button>
                 </form>
