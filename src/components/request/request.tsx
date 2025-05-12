@@ -257,10 +257,10 @@ export default function Request() {
           </ul>
         </nav>
        {/* Logout */}
-        <div className="border-t border-gray-300 py-4 px-6 md:px-12 flex items-center gap-3 text-[#006666] cursor-pointer mt-[660px]">
+        <div className="border-t border-gray-300 py-4 px-6 md:px-12 flex items-center gap-3 text-[#006666] cursor-pointer mt-[625px]">
         <img
                   src="/logout_icon.png"
-                  alt="logout Icon"
+                  alt="Request Icon"
                   className="w-5 h-5"
                 />
           <span className="font-medium">Logout</span>
